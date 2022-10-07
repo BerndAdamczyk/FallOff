@@ -46,12 +46,15 @@ public class GroundPlayerController : MonoBehaviour
         }
         
     }
-    public void Update()
+    public void FixedUpdate()
+    {
+        Rotate();
+    }
+    private void Rotate()
     {
         m_EndRotation.x = Mathf.Clamp(m_EndRotation.x + m_XAxisRotation, -50f, 50f);
         m_EndRotation.z = Mathf.Clamp(m_EndRotation.z + m_ZAxisRotation, -50f, 50f);
 
         transform.rotation = Quaternion.Euler(m_EndRotation);
-
     }
 }
